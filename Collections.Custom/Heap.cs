@@ -13,8 +13,14 @@ namespace Collections.Custom
     public class Heap<T> : IEnumerable<T>, ICollection, IReadOnlyCollection<T>
     {
         #region Fields
-
+        /// <summary>
+        /// The comparer.
+        /// </summary>
         private readonly IComparer<T> _comparer = Comparer<T>.Default;
+
+        /// <summary>
+        /// The items.
+        /// </summary>
         private readonly List<T> _items = new List<T>();
 
         #endregion Fields
