@@ -203,6 +203,9 @@ namespace Collections.Custom
             }
         }
 
+        /// <summary>
+        /// Downs the heap.
+        /// </summary>
         private void DownHeap()
         {
             int index = 0;
@@ -228,25 +231,66 @@ namespace Collections.Custom
                 index = smalledChildIndex;
             }
         }
-
+        /// <summary>
+        /// Hases the left child.
+        /// </summary>
+        /// <returns><c>true</c>, if left child was hased, <c>false</c> otherwise.</returns>
+        /// <param name="index">Index.</param>
         private bool HasLeftChild(int index) => LeftChildIndex(index) < _items.Count;
-
+        /// <summary>
+        /// Hases the parent.
+        /// </summary>
+        /// <returns><c>true</c>, if parent was hased, <c>false</c> otherwise.</returns>
+        /// <param name="index">Index.</param>
         private bool HasParent(int index) => ParentIndex(index) >= 0;
-
+        /// <summary>
+        /// Hases the right child.
+        /// </summary>
+        /// <returns><c>true</c>, if right child was hased, <c>false</c> otherwise.</returns>
+        /// <param name="index">Index.</param>
         private bool HasRightChild(int index) => RightChildIndex(index) < _items.Count;
-
+        /// <summary>
+        /// Lefts the child.
+        /// </summary>
+        /// <returns>The child.</returns>
+        /// <param name="index">Index.</param>
         private T LeftChild(int index) => _items[LeftChildIndex(index)];
-
+        /// <summary>
+        /// Lefts the index of the child.
+        /// </summary>
+        /// <returns>The child index.</returns>
+        /// <param name="index">Index.</param>
         private int LeftChildIndex(int index) => 2 * index + 1;
-
+        /// <summary>
+        /// Parent the specified index.
+        /// </summary>
+        /// <returns>The parent.</returns>
+        /// <param name="index">Index.</param>
         private T Parent(int index) => _items[ParentIndex(index)];
-
+        /// <summary>
+        /// Parents the index.
+        /// </summary>
+        /// <returns>The index.</returns>
+        /// <param name="index">Index.</param>
         private int ParentIndex(int index) => (index - 1) / 2;
-
+        /// <summary>
+        /// Rights the child.
+        /// </summary>
+        /// <returns>The child.</returns>
+        /// <param name="index">Index.</param>
         private T RightChild(int index) => _items[RightChildIndex(index)];
-
+        /// <summary>
+        /// Rights the index of the child.
+        /// </summary>
+        /// <returns>The child index.</returns>
+        /// <param name="index">Index.</param>
         private int RightChildIndex(int index) => 2 * index + 2;
 
+        /// <summary>
+        /// Swap the specified leftIndex and rightIndex.
+        /// </summary>
+        /// <param name="leftIndex">Left index.</param>
+        /// <param name="rightIndex">Right index.</param>
         private void Swap(int leftIndex, int rightIndex)
         {
             var temp = _items[leftIndex];
@@ -254,6 +298,9 @@ namespace Collections.Custom
             _items[rightIndex] = temp;
         }
 
+        /// <summary>
+        /// Ups the heap.
+        /// </summary>
         private void UpHeap()
         {
             int index = _items.Count - 1;
